@@ -35,7 +35,7 @@ require.config({
         //-- LeanCloud Storage
         LeanCloud: 'av-min',
         //-- Valine
-        Valine: 'Valine.min',
+        // Valine: 'Valine.min',
         //-- Tools
         Tools: 'tools',
         //-- Clipboard
