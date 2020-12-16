@@ -234,7 +234,7 @@ body{
 .introduce-user {
     width: 100%;
     color: #DDD;
-    font-family: 'Playball', cursive;
+    font-family: 'Courier New', Courier, monospace;
 }
 
 .menu-list {
