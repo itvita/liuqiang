@@ -111,19 +111,6 @@
         Code: {
             style: "normal"
         },    
-        Search: {
-            applicationID: "U8CZAW9G9Z",
-            apiKey: "b479add179b24524aa5f8773e9694c62",
-            indexName: "Notes",
-            hits: {
-                page: 10
-            },
-            labels: {
-                placeholder: "搜索",
-                empty: "未发现与 「${query}」 相关的内容",
-                stats: "${hits} 条相关条目，使用了 ${time} 毫秒"
-            }
-        },
         Valine: {
             switch: true,
             el: ".comments-content",
@@ -231,10 +218,6 @@
         },
         Suffix: {
             about: "简单地活着, 肆意又精彩."
-        },
-        Theme: {
-            url: "https://github.com/first19326/Hexo-LiveForCode",
-            name: "Hexo - It Vita"
         }
     };
 
