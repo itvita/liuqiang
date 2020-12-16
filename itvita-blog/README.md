@@ -1,5 +1,5 @@
-# Hexo - Live For Code
-Hexo - Live For Code 主题介绍以及使用说明：[Hexo主题LiveForCode介绍](https://www.notes.worstone.cn/2020/08/01/Hexo主题LiveForCode介绍/)    
+# Hexo - It Vita
+Hexo - It Vita 主题介绍以及使用说明：[Hexo主题LiveForCode介绍](https://www.notes.worstone.cn/2020/08/01/Hexo主题LiveForCode介绍/)    
 
 ## 资源说明
 | 名称 | 说明 |
@@ -8,7 +8,7 @@ Hexo - Live For Code 主题介绍以及使用说明：[Hexo主题LiveForCode介�
 | static | 此为主题 Style、Script、Font、Image 等静态资源文件 | 
 | source | 此为主题 文章、标签、分类 等模板文件 | 
 | _config.yml | 此为 Hexo 站点配置文件，仅供参考 |
-| LiveForCode | 此为主题 Live For Code 页面模板等主要内容 |   
+| LiveForCode | 此为主题 It Vita 页面模板等主要内容 |   
 
 提示：  
 如果在 __主题配置文件__ 中添加新的配置信息，并且想要在 `javascript` 中使用，那么请将其同步配置到 `config.ejs` 中。在 `javascript` 中使用 `window.config.xxx` 获取对应的配置信息。  

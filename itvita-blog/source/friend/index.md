@@ -37,9 +37,9 @@ friends  :
     friend      :
       - 
         name    : WorstOne
-        avatar  : https://cdn.jsdelivr.net/gh/first19326/hexo-liveforcode@master/static/image/sidebar/avatar.jpg
+        avatar  : https://cdn.jsdelivr.net/gh/itvita/liuqiang@master/itvita-blog/static/image/sidebar/avatar.jpg
         url     : https://notes.worstone.cn
-        about   : Live For Code 作者
+        about   : It Vita 作者
 ---
 > 欢迎各位朋友前来交换友链，本站友链接受以下类型的网站：
 > - 个人博客

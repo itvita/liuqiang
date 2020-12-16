@@ -32,10 +32,10 @@ sticky: 10000
 
 
 ## 主题预览
-[Hexo - Live For Code](https://www.notes.worstone.cn)  
+[Hexo - It Vita](https://www.notes.worstone.cn)  
 
 
-## 安装Live For Code
+## 安装It Vita
 Hexo 安装主题的方式非常简单，只需要将主题文件拷贝至 Hexo 根目录的 themes 目录下，然后修改下配置文件即可。具体到 LiveForCode 来说，安装步骤如下。  
 
 ### 下载主题

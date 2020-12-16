@@ -460,7 +460,7 @@ function Base() {
         if (window.config.BottomText.left || window.config.BottomText.right)
             footer.append('<div>【' + window.config.BottomText.left + '<span><i class="iconfont icon-' + window.config.BottomText.icon + '"></i></span>' + window.config.BottomText.right + '】</div>');
 
-        if (window.config.ThemeInfo) footer.append('<div class="theme-info">Live For Code</div>');
+        if (window.config.ThemeInfo) footer.append('<div class="theme-info">It Vita</div>');
 
         switch (parseInt(window.config.FooterStyle)) {
             case 1:
