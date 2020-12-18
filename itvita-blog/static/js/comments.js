@@ -1,13 +1,16 @@
 $(function () {
+    /* 预览 */
   $("#vpreview-btn").click(function () {
     $("#vpreview").html(marked($("#veditor").val()));
     $("#vpreview").toggle()
   })
+  /* 编辑 */
   $("#veditor").keyup(function () {
     if(!$("#vpreview").is(":hidden")){
       $("#vpreview").html(marked($("#veditor").val()));
     }
   })
+  /* 快捷 */
   $(".vheader a[a-data]").click(function () {
       const data = $(this).attr('a-data');
       const veditor = $("#veditor")

@@ -8,8 +8,6 @@ function Base() {
     let temScroll      = 0,                       // 上一次页面滚动位置
         wrapRightTimer = null,
         timers         = {                        // 定时器
-            setArticleHeaderCategoryTimer : null, // 文章信息分类设置定时器ID
-            setArticleHeaderTagTimer      : null, // 文章信息标签设置定时器ID
             setTocTimer                   : null, // 文章目录设置定时器ID
             setLazyLoadTimer              : null, // 图片懒加载定时器ID
             setDonateTimer                : null, // 赞赏模块定时器ID
@@ -543,11 +541,6 @@ function Base() {
         // 设置文章样式
         $('.inner').css('max-width', '100vw');
 
-        if ($('.Chinese').length == 0) {
-            // 设置文章信息
-            timers.setArticleHeaderCategoryTimer = window.setInterval( script.setArticleHeaderCategory, 1000 );
-            timers.setArticleHeaderTagTimer      = window.setInterval( script.setArticleHeaderTag, 1000 );
-        }
 
         if ($('.Chinese').length > 0) {
             script.setOtherHitokoto();
@@ -630,33 +623,6 @@ function Base() {
         });
     };
 
-    /**
-     * 设置文章信息-分类
-     */
-    this.setArticleHeaderCategory = function () {
-        let categories = $('.category').find('a');
-        if (categories.length > 0) {
-            $.each(categories, function (i) {
-                let category = $(categories[i]);
-                $('.header-subinfo').append('<span class="category-color">' + (category.text()) + '</span>');
-            });
-        }
-        script.clearIntervalTimer(timers.setArticleHeaderCategoryTimer);
-    };
-
-    /**
-     * 设置文章信息-标签
-     */
-    this.setArticleHeaderTag = function () {
-        let tags = $('.tag').find('a');
-        if (tags.length > 0) {
-            $.each(tags, function (i) {
-                let tag = $(tags[i]);
-                $('.header-subinfo').append('<span class="tag-color">' + (tag.text()) + '</span>');
-            });
-        }
-        script.clearIntervalTimer(timers.setArticleHeaderTagTimer);
-    };
 
     /**
      * 初始化文章目录插件位置

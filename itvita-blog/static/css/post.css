@@ -732,14 +732,14 @@ a.next-prefix:hover {
 
 /* Sidebar CSS */
 
-#sidebar a {
+/* #sidebar a {
   color: #757575;
-}
+} */
 
-#sidebar a:hover {
+/* #sidebar a:hover {
   color: #21759b;
   text-decoration: underline;
-}
+} */
 
 #sidebar h3 {
   font-size: 14px;
