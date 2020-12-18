@@ -34,8 +34,6 @@ require.config({
         Tocbot: 'tocbot',
         //-- LeanCloud Storage
         LeanCloud: 'av-min',
-        //-- Valine
-        // Valine: 'Valine.min',
         //-- Tools
         Tools: 'tools',
         //-- Clipboard
@@ -67,9 +65,6 @@ require.config({
         },
         Donate: {
             deps: ['css!' + window.config.Style.donate]
-        },
-        Valine: {
-            deps: ['LeanCloud']
         },
         Tocbot: {
             deps: ['css!' + window.config.Style.tocbot]

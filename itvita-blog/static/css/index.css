@@ -522,14 +522,14 @@ b {
 
 /* Sidebar CSS */
 
-#sidebar a {
+/* #sidebar a {
 	color: #757575
-}
+} */
 
-#sidebar a:hover {
-	color: #21759B;
+/* #sidebar a:hover {
+	color: #156e97;
 	text-decoration: underline
-}
+} */
 
 #sidebar h3 {
 	font-size: 14px

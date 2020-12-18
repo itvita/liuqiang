@@ -8,8 +8,6 @@ function Base() {
     let temScroll      = 0,                       // 上一次页面滚动位置
         wrapRightTimer = null,
         timers         = {                        // 定时器
-            setMenuDataTimer              : null, // 菜单设置数据定时器ID
-            setSearchTimer                : null, // 搜索设置定时器ID
             setArticleHeaderCategoryTimer : null, // 文章信息分类设置定时器ID
             setArticleHeaderTagTimer      : null, // 文章信息标签设置定时器ID
             setTocTimer                   : null, // 文章目录设置定时器ID
@@ -76,20 +74,11 @@ function Base() {
         // 窗口变化监听
         $(window).resize( function() { script.resizeMonitor(); });
 
-        // 设置名称
-        $('.header-title').text(window.config.BlogUser);
-
         // 初始化样式
         script.initStyle();
 
         // HTML5-TITLE
         script.htmlTitle();
-
-        // 设置菜单侧边栏内容
-        timers.setMenuDataTimer = window.setInterval( script.setMenuData, 1000 );
-
-        // 设置搜索功能
-        timers.setSearchTimer = window.setInterval( script.setSearch, 1000 );
 
         // 图片懒加载
         timers.setLazyLoadTimer = window.setInterval( script.imageLazyLoad, 1000 );
@@ -367,89 +356,6 @@ function Base() {
     };
 
     /**
-     * 设置菜单数据
-     */
-    this.setMenuData = function() {
-
-        let introduceAvatar = $('.introduce-avatar'),       // 简介头像
-            introduceUser   = $('.introduce-user span'),    // 简介名称
-            menuList        = $('.menu-list ul'),           // 菜单列表
-            menuLink        = $('.menu-link'),              // 菜单链接
-            menuListArr     = window.config.MenuList,
-            menuLinkArr     = window.config.MenuLink;
-        
-        // 添加个人简介头像
-        if (window.config.BlogAvatar != '') {
-            introduceAvatar.append("<img src='" + window.config.BlogAvatar + "'>");
-        }
-
-        // 设置个人简介名称
-        if (window.config.BlogUser != '') {
-            introduceUser.text(window.config.BlogUser);
-        }
-
-        // 添加菜单列表
-        if (menuListArr.length > 0) {
-            $.each(menuListArr, function (i) {
-                let tab = menuListArr[i];
-                let li = $("<li></li>"),
-                    a  = $("<a></a>");
-                if (tab.href && tab.href != '') {
-                    a.attr("href", tab.href);
-                    a.attr("target", tab.target);
-                } else {
-                    a.attr("href", "javascript:;");
-                    a.attr("target", "_self");    
-                }
-                if (tab.class && tab.class != '') {
-                    a.addClass(tab.class);
-                }
-                a.text(tab.name);
-                li.append(a);
-                menuList.append(li);            
-            });
-        }
-
-        // 添加菜单链接
-        if (menuLinkArr.length > 0) {
-            $.each(menuLinkArr, function (i) {
-                let link = menuLinkArr[i];
-                let a    = $("<a></a>"),
-                    span = $("<span></span>").addClass('iconfont');
-                if (link.url && link.url != '') {
-                    a.attr("href", link.url);
-                    a.attr("target", "_blank");
-                } else {
-                    a.attr("href", "javascript:;");
-                    a.attr("target", "_self");
-                }
-                span.addClass(link.icon);
-                a.append(span);
-                menuLink.append(a);             
-            });
-        }
-
-        // 清除定时器
-        if (
-            menuListArr.length == menuList.find('li').length 
-            && menuLinkArr.length == menuLink.find('a').length
-        ) {
-            script.clearIntervalTimer(timers.setMenuDataTimer);
-        }
-
-    };
-
-    /**
-     * 添加搜索
-     */
-    this.setSearch = function() {
-        if ($('.search-window').length > 0) {
-            require(['Search']);      
-        }
-        script.clearIntervalTimer(timers.setSearchTimer);
-    }
-
-    /**
      * 添加页脚
      */
     this.addFooter = function() {
@@ -549,11 +455,6 @@ function Base() {
             require(['CircleMagic'], function() {
                 $('.header').circleMagic(window.config.HomeHeaderAnimation);
             });
-        }
-
-        if ($('.title').length == 0) {
-            // 初始化评论列表（用于获取文章阅读数以及评论数）
-            timers.setCommentsTimer  = window.setInterval( script.initComments, 1000 );
         }
     };
 
@@ -660,19 +561,16 @@ function Base() {
         // 设置代码样式
         script.setCodeStyle();
         
-        if ($('.Chinese').length == 0) {
-            // 初始化文章目录位置
-            timers.setTocTimer = window.setInterval( script.initToc, 1000 );
-        }
+        // if ($('.Chinese').length == 0) {
+        //     // 初始化文章目录位置
+        //     timers.setTocTimer = window.setInterval( script.initToc, 1000 );
+        // }
 
-        // 初始化赞赏模块
-        timers.setDonateTimer = window.setInterval( script.initDonate, 1000 );
+        // // 初始化赞赏模块
+        // timers.setDonateTimer = window.setInterval( script.initDonate, 1000 );
 
-        // 初始化评论列表
-        timers.setCommentsTimer  = window.setInterval( script.initComments, 1000 );
-
-        // 设置右下角菜单
-        timers.setWrapRightTimer = window.setInterval( script.addWrapRight, 1000 );
+        // // 设置右下角菜单
+        // timers.setWrapRightTimer = window.setInterval( script.addWrapRight, 1000 );
 
     };
 
@@ -961,38 +859,4 @@ function Base() {
         }
         script.clearIntervalTimer(timers.setDonateTimer);
     }
-
-    /**
-     * 初始化评论列表
-     */
-    this.initComments = function() {
-        if (window.config.Valine.switch) {
-            require(['LeanCloud', 'Valine'], function(LeanCloud, Valine) {
-                window.AV    = LeanCloud;
-                let metaStr  = window.config.Valine.meta;
-                let metaArr  = metaStr.split(',');
-                let fieldStr = window.config.Valine.requiredFields;
-                let fieldArr = fieldStr.split(',');
-                let valine   = new Valine();
-    
-                valine.init({
-                    el             : window.config.Valine.el,
-                    appId          : window.config.Valine.appId,
-                    appKey         : window.config.Valine.appKey,
-                    placeholder    : window.config.Valine.placeholder,
-                    path           : window.location.pathname,
-                    avatar         : window.config.Valine.avatar,
-                    meta           : metaArr,
-                    requiredFields : fieldArr,
-                    pageSize       : window.config.Valine.pageSize,
-                    lang           : window.config.Valine.lang,
-                    visitor        : window.config.Valine.visitor,
-                    enableQQ       : window.config.Valine.enableQQ
-                });
-            })
-        }
-
-        script.clearIntervalTimer(timers.setCommentsTimer);    
-    }
-
 }
