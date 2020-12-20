@@ -445,7 +445,8 @@ function Base() {
         // 设置右下角菜单
         timers.setWrapRightTimer = window.setInterval( script.addWrapRight, 1000 );
 
-        script.setHitokoto();
+        // script.setHitokoto();
+        script.setDomHomePosition();
         script.scrollMonitor();
         script.setDomHomePosition();
 
