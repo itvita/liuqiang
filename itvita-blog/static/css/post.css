@@ -61,7 +61,7 @@ h3,
 h4,
 h5,
 h6 {
-  padding-left: 20px;
+  /* padding-left: 20px; */
   font-size: 100%;
   font-weight: normal;
 }
@@ -126,7 +126,7 @@ b {
 }
 
 blockquote {
-  margin: 0 20px 24px;
+  margin: 0 0px 24px;
   /* padding: 1.45em; */
   padding: 2px;
   min-height: 0;
@@ -360,20 +360,20 @@ blockquote {
   text-indent: 0;
 }
 
-.article-body p a {
+/* .article-body p a {
   padding-left: 20px;
-}
+} */
 
-.article-body p em {
+/* .article-body p em {
   padding-left: 20px;
-}
+} */
 
-.article-body p strong {
+/* .article-body p strong {
   padding-left: 20px;
-}
-.article-body p img {
+} */
+/* .article-body p img {
   padding-left: 20px;
-}
+} */
 .article-body p code {
   margin: 10px 20px;
 }
@@ -436,7 +436,7 @@ blockquote {
 }
 
 .article-body pre {
-  margin: 10px 20px;
+  /* margin: 10px 20px; */
   border-radius: 5px;
   white-space: pre;
   word-break: break-all;
